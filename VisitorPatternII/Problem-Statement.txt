@@ -1,0 +1,51 @@
+Exercise
+Problem Description: Arithmetic Expression Evaluator Using the Visitor Pattern
+Objective:
+You are tasked with implementing a system that can evaluate simple arithmetic expressions such as addition and multiplication. The system should be extensible, meaning that new operations can be added in the future without modifying the core structure of the expression classes. You will use the Visitor pattern to achieve this flexibility.
+
+Problem Details:
+You are required to design and implement an Abstract Syntax Tree (AST) to represent arithmetic expressions. The tree should contain Number, Addition, and Multiplication as types of expressions. The main goal is to evaluate the result of an expression like:
+
+(5 + 3) * 2
+
+In addition to evaluating the expression, you should make your design flexible enough to allow easy addition of new behaviors (e.g., printing the expression in a specific format, or adding more complex operations in the future) without modifying the existing expression classes.
+
+Requirements:
+Expression Classes:
+
+Number: Represents a number in the expression (e.g., 5, 3).
+
+Addition: Represents an addition operation between two expressions (e.g., 5 + 3).
+
+Multiplication: Represents a multiplication operation between two expressions (e.g., 5 * 3).
+
+Visitor Pattern:
+
+Implement a Visitor interface that defines methods for each type of expression (Number, Addition, Multiplication).
+
+Implement at least one concrete visitor: Evaluator. This visitor will traverse the expression tree and calculate the result of the arithmetic expression.
+
+Evaluator Visitor:
+
+The Evaluator visitor should compute the result of the arithmetic expression and store the result in an internal field.
+
+The evaluator should traverse the entire expression tree, using double dispatch to visit the appropriate method for each node (expression).
+
+Extensibility:
+
+Make sure your design can easily be extended in the future. For example:
+
+You should be able to add new operations (e.g., subtraction, division) by creating new visitor classes without modifying the existing expression classes.
+
+You should also be able to easily add more types of expressions (e.g., Subtraction, Division).
+
+Deliverables:
+Expression Interface: Define a common interface for all expression types.
+
+Concrete Expression Classes: Implement Number, Addition, and Multiplication.
+
+Visitor Interface: Define the interface that all visitors will implement.
+
+Evaluator Visitor: Implement a concrete visitor that calculates the result of the expression.
+
+Main Class: Demonstrate your implementation with an example expression, such as (5 + 3) * 2, and print the result.
