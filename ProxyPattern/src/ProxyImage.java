@@ -1,6 +1,6 @@
 public class ProxyImage implements Image {
 
-    private String filename;
+    private final String filename;
     private RealImage realImage;
 
     public ProxyImage(String filename) {
@@ -10,15 +10,15 @@ public class ProxyImage implements Image {
     @Override
     public void display() {
         System.out.println("Proxy image: Displaying " + filename);
+
         if (realImage == null) {
-            realImage = new RealImage(filename);
-            System.out.println("created new real image");
+            realImage = new RealImage(filename);               // lazy creation, first call only
+            System.out.println("Created new real image");
         } else {
-            System.out.println("using proxy as real image already created");
-            realImage.display();
-            System.out.println("Proxy image: logging " + realImage);
+            System.out.println("Using existing real image");
         }
+
+        realImage.display();                                    // always delegate
+        System.out.println("Proxy image: logging " + filename);
     }
-
-
 }
